@@ -12,10 +12,12 @@
         </div>
         <div class="font-roboto overflow-hidden" v-html="site.content"></div>
     </div>
-    <div>
-        <h1 class="text-2xl font-bold mb-4">地图示例</h1>
-        <Map />
+    <div class="w-full items-center justify-between">
+        <div class="px-4 rounded-lg pt-5 w-full md:w-[40%]">
+            <Map />
+        </div>
     </div>
+
 </template>
 
 <script setup>

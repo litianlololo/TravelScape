@@ -10,6 +10,7 @@ export const useGeneralStore = defineStore('general',{
             "province": "江苏",
             "city": "苏州"
         }],
+        chosedsite:{},
         shouldFetchSiteList: false, // 添加一个标志
     }),
     actions:{

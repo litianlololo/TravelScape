@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link :to="{ name: 'site', query: { site:JSON.stringify(site) } }">
+    <nuxt-link :to="{ name: 'site', query: { site:JSON.stringify(site) } }" @click="setChosenSite(site)">
         <div id="sitesingle" class="py-2 px-4 class= border-y-2 rounded-lg w-full">
             <div class="flex items-center justify-between">
                 <div class="font-bold text-[18px]">
@@ -16,8 +16,12 @@
 </template>
 
 <script setup>
+const { $generalStore } = useNuxtApp()
 const route = useRoute()
 const router = useRouter()
 defineProps(['site'])
 
+function setChosenSite(selectedSite) {
+    $generalStore.chosedsite = selectedSite;
+}
 </script>
