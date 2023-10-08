@@ -1,0 +1,42 @@
+<template>
+    <div>
+
+    </div>
+</template>
+
+<script setup>
+import { ref, watch } from 'vue';
+const { $generalStore } = useNuxtApp()
+
+watch(() => $generalStore.searchkey, (newSearchKey, oldSearchKey) => {
+    // 在变量发生变化时执行操作
+    getSiteList();
+});
+
+const getSiteList = async () => {
+    const searchKey = encodeURIComponent($generalStore.searchkey); // 编码搜索关键词
+    let url = `/api/fapigx/scenic/query?word=${searchKey}&key=474826f45771069394a70b6a660918ec`;
+
+    if ($generalStore.searchchoice === "城市") {
+        const city = encodeURIComponent($generalStore.searchkey);
+        url += `&city=${city}`;
+    }
+
+    // 使用 fetch 发送请求
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+
+        const data = await response.json();
+        console.log(data);
+        // 处理响应数据
+    } catch (error) {
+        console.error(error);
+        // 处理错误
+    }
+}
+</script>
