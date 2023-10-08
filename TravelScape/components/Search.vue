@@ -28,7 +28,8 @@
                 placeholder="Search Here">
             <div 
                 class="px-3 py-1 flex items-center border-l border-l-gray-300"
-                @click = "Search()"
+                :disabled="!searchInput"
+                @click="searchInput ? Search() : null"
             >
                 <Icon name="ri:search-line" color="#A1A2A7" size="22" />
             </div>
@@ -55,6 +56,7 @@ const choiceKey = () => {
     $generalStore.searchchoice= '关键词'
 }
 const Search = () => {
+    $generalStore.shouldFetchSiteList = !$generalStore.shouldFetchSiteList;
     $generalStore.searchkey = searchInput.value;
 }
 </script>

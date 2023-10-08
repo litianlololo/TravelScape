@@ -1,6 +1,8 @@
 <template>
     <div>
-
+        <template v-for="site in $generalStore.SiteList">
+          <SiteSingle :site="site"/>
+        </template>
     </div>
 </template>
 
@@ -8,7 +10,7 @@
 import { ref, watch } from 'vue';
 const { $generalStore } = useNuxtApp()
 
-watch(() => $generalStore.searchkey, (newSearchKey, oldSearchKey) => {
+watch(() => $generalStore.shouldFetchSiteList, (newshouldFetchSiteList, oldshouldFetchSiteList) => {
     // 在变量发生变化时执行操作
     getSiteList();
 });
@@ -33,6 +35,9 @@ const getSiteList = async () => {
 
         const data = await response.json();
         console.log(data);
+
+        $generalStore.SiteList = data.result.list;
+        console.log($generalStore.SiteList);
         // 处理响应数据
     } catch (error) {
         console.error(error);

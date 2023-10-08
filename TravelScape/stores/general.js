@@ -4,7 +4,8 @@ export const useGeneralStore = defineStore('general',{
     state:()=>({
         searchkey: '',
         searchchoice:'关键词',
-        SiteLists:{}
+        SiteList:{},
+        shouldFetchSiteList: false, // 添加一个标志
     }),
     actions:{
         //
