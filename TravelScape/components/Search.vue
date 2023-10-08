@@ -1,29 +1,29 @@
 <template>
     <div id="Search">
-        <div class="flex items-center w-full justify-between " >
+        <div class="flex items-center w-full justify-center " >
             <button 
                 :class="(searchchoice=='关键词')? 'bg-[#a1ddce]' : 'bg-white' "
-                class="px-4 py-2 text-[14px] font-semibold rounded-2xl flex items-center"
+                class="px-2 py-2 text-[14px] font-semibold rounded-2xl flex items-center"
                 @click="choiceKey()"
             >
                 关键词
             </button>
             <button 
                 :class="(searchchoice=='景区')? 'bg-[#a1ddce]' : 'bg-white'  "
-                class="px-4 py-2 text-[14px] font-semibold rounded-2xl flex items-center"
+                class="px-2 py-2 text-[14px] font-semibold rounded-2xl flex items-center"
                 @click="choiceSite()"
             >
                 景区
             </button>
             <button 
                 :class="(searchchoice=='城市')? 'bg-[#a1ddce]' : 'bg-white'  "
-                class="px-4 py-2 text-[14px] font-semibold rounded-2xl flex items-center"
+                class="px-2 py-2 text-[14px] font-semibold rounded-2xl flex items-center"
                 @click="choiceCity()"
             >
                 城市
             </button>
 
-            <div class="flex items-center bg-[#F1F1F2] p-1 rounded-full w-full ">
+            <div class="flex items-center bg-[#F1F1F2] p-1 rounded-full ">
             <input v-model="searchInput" type="text" class="w-full pl-3 my-2 bg-transparent placeholder-[#838383] text-[15px] focus:outline-none"
                 placeholder="Search Here">
             <div 

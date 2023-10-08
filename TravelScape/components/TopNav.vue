@@ -7,7 +7,9 @@
                 </NuxtLink>
             </div>
         </div>
-        <div class="hidden md:flex items-center p-1 rounded-full max-w-[600px] w-full">
+        <div 
+            v-if="route.path === '/'"
+            class="hidden md:flex items-center p-1 rounded-full max-w-[600px] w-full" >
             <Search />
         </div>
     </div>

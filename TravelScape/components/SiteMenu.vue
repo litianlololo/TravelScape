@@ -9,6 +9,8 @@
 <script setup>
 import { ref, watch } from 'vue';
 const { $generalStore } = useNuxtApp()
+const route = useRoute()
+const router = useRouter()
 
 watch(() => $generalStore.shouldFetchSiteList, (newshouldFetchSiteList, oldshouldFetchSiteList) => {
     // 在变量发生变化时执行操作
@@ -37,6 +39,8 @@ const getSiteList = async () => {
         console.log(data);
 
         $generalStore.SiteList = data.result.list;
+        if (router.currentRoute.value.path !== '/')
+            router.push('/')
         console.log($generalStore.SiteList);
         // 处理响应数据
     } catch (error) {

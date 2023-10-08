@@ -1,5 +1,5 @@
 <template>
-    <TopNav/>
+    <TopNav class="w-full"/>
     <div class="sm:hidden px-[5px] pt-[100px] mx-auto">
         <Search />
     </div>

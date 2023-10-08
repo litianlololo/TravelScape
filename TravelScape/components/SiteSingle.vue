@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link :to="{ name: 'site', query: { name: site.name, content: site.content, province:site.province,city:site.city } }">
+    <nuxt-link :to="{ name: 'site', query: { site:JSON.stringify(site) } }">
         <div id="sitesingle" class="py-2 px-4 class= border-y-2 rounded-lg w-full">
             <div class="flex items-center justify-between">
                 <div class="font-bold text-[18px]">
