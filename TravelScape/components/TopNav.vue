@@ -1,5 +1,5 @@
 <template>
-    <div id="TopNav" class="fixed bg-white z-30 flex items-center justify-between w-full border-b h-[100px]">
+    <div id="TopNav" class="fixed bg-white z-30 flex items-center justify-between w-full border-b h-[100px] md:px-[300px]" >
         <div class="flex items-center justify-between w-full px-3 ">
             <div class="w-[30%]">
                 <NuxtLink to="/">

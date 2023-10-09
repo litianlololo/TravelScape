@@ -1,5 +1,5 @@
 <template>
-    <div class="aspect-[1/1] rounded-2xl" id="container">
+      <div class="aspect-[1/1] rounded-2xl" id="container">
   </div>
 </template>
 

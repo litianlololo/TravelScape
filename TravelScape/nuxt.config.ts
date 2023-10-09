@@ -25,4 +25,7 @@ export default ({
   buildModules: [
     '@nuxtjs/proxy',
   ],
+  devServer: {
+    port: 3001,
+},
 })

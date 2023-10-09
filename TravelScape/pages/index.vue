@@ -1,6 +1,5 @@
 <template>
     <MainLayout/>
-    <weather/>   
 </template>
 
 <script setup>
