@@ -1,29 +1,38 @@
 <template>
+  <client-only>
     <div id="he-plugin-standard"></div>
-  </template>
-  
-  <script>
-  export default {
-    mounted() {
-      WIDGET = {
-        "CONFIG": {
-          "layout": "2",
-          "width": 230,
-          "height": 270,
-          "background": "1",
-          "dataColor": "FFFFFF",
-          "borderRadius": "5",
-          "key": "78d9b31e529f441ea812cf9919008f88"
-        }
-      };
-      
-      // 加载天气插件
-      const script = document.createElement("script");
-      script.src = "https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0";
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
+  </client-only>
+</template>
+
+<script>
+export default {
+  mounted() {
+    window.WIDGET = {
+      'CONFIG': {
+        modules: "01234",
+        background: "1",
+        tmpColor: "FFFFFF",
+        tmpSize: "16",
+        cityColor: "FFFFFF",
+        citySize: "16",
+        aqiColor: "FFFFFF",
+        aqiSize: "16",
+        weatherIconSize: "24",
+        alertIconSize: "18",
+        padding: "10px 10px 10px 10px",
+        shadow: "1",
+        language: "auto",
+        borderRadius: "5",
+        fixed: "false",
+        vertical: "top",
+        horizontal: "left",
+        key: "7360efc9e85c4819bf96d1b5425cf2a3"
+      }
     }
-  };
-  </script>
-  
+    var script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src = 'https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0'
+    document.getElementsByTagName('head')[0].appendChild(script)
+  }
+}
+</script>

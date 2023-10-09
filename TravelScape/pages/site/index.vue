@@ -16,6 +16,10 @@
         <div class="px-4 rounded-lg pt-5 w-full md:w-[40%]">
             <Map />
         </div>
+        <div class="px-4 rounded-lg pt-5 w-full md:w-[40%]">
+            
+        </div>
+        
     </div>
 
 </template>
