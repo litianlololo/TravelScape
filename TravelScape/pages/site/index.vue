@@ -18,6 +18,17 @@
             <hotel :hotel="hotel" />
         </template>
     </div>
+    <div class=" px-3 pt-5 bg-blue-50 text-[24px] text-blue-700 font-bold md:pl-[300px]">网友评价</div>
+    <div v-if="$generalStore.CommentList.length > 0">
+        <div v-for="comment in $generalStore.CommentList ">
+            <div class="w-full items-center justify-between">
+                <comment :comment="comment" />
+            </div>
+        </div>
+    </div>
+    <div v-else class=" px-4 py-2 bg-blue-50 text-[18px] text-gray-700 font-bold md:pl-[300px]">
+        暂无评论
+    </div>
     <div class="w-full items-center justify-between">
         <div class="px-4 rounded-lg pt-5 w-full md:w-[40%]">
             <Map />
@@ -32,10 +43,12 @@ const router = useRouter()
 const siteStr = route.query.site
 const site = JSON.parse(siteStr)
 let hotelCount = ref(null)
+let Comments = ref([])
 console.log(site)
 
 onMounted(() => {
     loadHotel();
+    getComment();
 })
 const loadHotel = async () => {
     try {
@@ -59,6 +72,28 @@ const loadHotel = async () => {
             console.log($generalStore.hotels);
         }
     } catch (e) {
+        console.error(e);
+    }
+}
+const getComment = async () => {
+    const data = {
+        keyword: site.name,
+    }
+    try {
+        const response = await fetch('http://localhost:5001/user/comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // 指定请求的内容类型为 JSON
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            $generalStore.CommentList = await response.json();
+            console.log($generalStore.CommentList );
+        }
+    } catch (e) {
+        $generalStore.CommentList=[];
         console.error(e);
     }
 }

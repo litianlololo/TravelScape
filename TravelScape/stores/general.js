@@ -4,6 +4,9 @@ export const useGeneralStore = defineStore('general',{
     state:()=>({
         searchkey: '',
         searchchoice:'关键词',
+        chosedsite:{},
+        shouldFetchSiteList: false, // 添加一个标志
+        CommentList:[],
         SiteList:[
             {
                 "name": "安吉县吴昌硕纪念馆",
@@ -42,7 +45,6 @@ export const useGeneralStore = defineStore('general',{
                 "city": "湖州"
             }
         ],
-        chosedsite:{},
         hotels:[
             {
                 "picture": "http://m.tuniucdn.com/fb3/s1/2n9c/3N3EftjpfUzefffLBnyKXr8m2UcR.jpg",
@@ -104,7 +106,6 @@ export const useGeneralStore = defineStore('general',{
                     3
                 ]
             }],
-        shouldFetchSiteList: false, // 添加一个标志
     }),
     actions:{
         //

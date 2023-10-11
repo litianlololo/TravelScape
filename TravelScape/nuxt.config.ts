@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default ({
-  ssr: false, // 禁用服务端渲染
   css: ['~/assets/css/main.css'],
+  ssr: true,
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -27,5 +27,6 @@ export default ({
   ],
   devServer: {
     port: 3001,
+    host: '0,0,0,0'
 },
 })
