@@ -38,12 +38,7 @@
 
 <script setup>
 const { $generalStore } = useNuxtApp()
-const route = useRoute()
-const router = useRouter()
-const siteStr = route.query.site
-const site = JSON.parse(siteStr)
-let hotelCount = ref(null)
-let Comments = ref([])
+const site = $generalStore.chosedsite
 console.log(site)
 
 onMounted(() => {
@@ -80,7 +75,7 @@ const getComment = async () => {
         keyword: site.name,
     }
     try {
-        const response = await fetch('http://localhost:5001/user/comments', {
+        const response = await fetch('http://110.40.206.206:5001/user/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', // 指定请求的内容类型为 JSON

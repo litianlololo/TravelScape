@@ -10,7 +10,7 @@ const { $generalStore } = useNuxtApp();
 
 let map; // 地图实例
 
-onMounted(async () => {
+onBeforeMount(async () => {
   if (process.client) {
     window._AMapSecurityConfig = {
       securityJsCode: '17c389ea6936a2d4164f9a8f3d22b18a',
